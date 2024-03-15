@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MenuPage extends StatefulWidget {
@@ -72,7 +73,7 @@ class _MenuPageState extends State<MenuPage> {
                         width: MediaQuery.of(context).size.width,
                         height: 110,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(11),
+                          borderRadius: BorderRadius.circular(10),
                           color: Color(0xFFE5D8AC),
                         ),
                         child: Column(
@@ -81,7 +82,7 @@ class _MenuPageState extends State<MenuPage> {
                               padding: const EdgeInsets.fromLTRB(7, 7, 7, 0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(7),
+                                  borderRadius: BorderRadius.circular(10),
                                   color: Color(0xFFF7F0DA),
                                 ),
                                 child: Column(
@@ -91,40 +92,40 @@ class _MenuPageState extends State<MenuPage> {
                                           CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
+                                        // SizedBox(
+                                        //   width: 160,
+                                        //   child: ElevatedButton(
+                                        //     onPressed: () {
+                                        //       setState(() {
+                                        //         button1Color = Color(0xFFD6A875);
+                                        //         button2Color = Color(0xFFF7F0DA);
+                                        //
+                                        //         isButton1Pressed =
+                                        //             !isButton1Pressed;
+                                        //       });
+                                        //     },
+                                        //     style: ButtonStyle(
+                                        //       backgroundColor:
+                                        //           MaterialStateProperty.all(
+                                        //               button1Color),
+                                        //       elevation:
+                                        //           MaterialStateProperty.all(0.0),
+                                        //     ),
+                                        //     child: Text(
+                                        //       'Доставка',
+                                        //       style: GoogleFonts.roboto(
+                                        //           color: button2Color ==
+                                        //                   Color(0xFFF7F0DA)
+                                        //               ? Color(0xFFF7F0DA)
+                                        //               : Color(0xFF0D2100),
+                                        //           fontSize: 18,
+                                        //           fontWeight: FontWeight.bold),
+                                        //     ),
+                                        //   ),
+                                        // ),
+                                        SizedBox(width: 5),
                                         SizedBox(
-                                          width: 180,
-                                          child: ElevatedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                button1Color = Color(0xFFD6A875);
-                                                button2Color = Color(0xFFF7F0DA);
-
-                                                isButton1Pressed =
-                                                    !isButton1Pressed;
-                                              });
-                                            },
-                                            style: ButtonStyle(
-                                              backgroundColor:
-                                                  MaterialStateProperty.all(
-                                                      button1Color),
-                                              elevation:
-                                                  MaterialStateProperty.all(0.0),
-                                            ),
-                                            child: Text(
-                                              'Доставка',
-                                              style: GoogleFonts.roboto(
-                                                  color: button2Color ==
-                                                          Color(0xFFF7F0DA)
-                                                      ? Color(0xFFF7F0DA)
-                                                      : Color(0xFF0D2100),
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 20.0),
-                                        SizedBox(
-                                          width: 180,
+                                          width: 160,
                                           child: ElevatedButton(
                                             onPressed: () {
                                               setState(() {
@@ -402,7 +403,7 @@ class _MenuPageState extends State<MenuPage> {
                                   'Блинчики\nс лесными ягодами',
                                   style: GoogleFonts.roboto(
                                       color: Color(0xFF9DD153),
-                                      fontSize: 28,
+                                      fontSize: 18,
                                       fontWeight: FontWeight.w900),
                                 ),
                               ),
@@ -412,12 +413,12 @@ class _MenuPageState extends State<MenuPage> {
                                   'Горячие сытные блинчики по-домашнему, с клубникой и черникой, политые сиропом.',
                                   style: GoogleFonts.roboto(
                                       color: Color(0xFF476533).withOpacity(0.6),
-                                      fontSize: 15,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w500),
                                 ),
                               ),
                               SizedBox(
-                                height: 5,
+                                height: 25,
                               ),
                               SizedBox(
                                 width: 150,
@@ -463,7 +464,9 @@ class _MenuPageState extends State<MenuPage> {
                         ),
                         Column(
                           children: [
-                            Image.asset('assets/photo/eat.png'),
+                            Container(
+                              width: 190,
+                                child: Image.asset('assets/photo/eat.png')),
                           ],
                         )
                       ],
@@ -499,7 +502,7 @@ class _MenuPageState extends State<MenuPage> {
                                   'Блинчики\nс лесными ягодами',
                                   style: GoogleFonts.roboto(
                                       color: Color(0xFF9DD153),
-                                      fontSize: 28,
+                                      fontSize: 18,
                                       fontWeight: FontWeight.w900),
                                 ),
                               ),
@@ -509,12 +512,12 @@ class _MenuPageState extends State<MenuPage> {
                                   'Горячие сытные блинчики по-домашнему, с клубникой и черникой, политые сиропом.',
                                   style: GoogleFonts.roboto(
                                       color: Color(0xFF476533).withOpacity(0.6),
-                                      fontSize: 15,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w500),
                                 ),
                               ),
                               SizedBox(
-                                height: 5,
+                                height: 25,
                               ),
                               SizedBox(
                                 width: 150,
@@ -560,7 +563,9 @@ class _MenuPageState extends State<MenuPage> {
                         ),
                         Column(
                           children: [
-                            Image.asset('assets/photo/eat2.png'),
+                            Container(
+                                width: 190,
+                                child: Image.asset('assets/photo/eat2.png')),
                           ],
                         )
                       ],
@@ -568,6 +573,40 @@ class _MenuPageState extends State<MenuPage> {
                   ],
                 ),
               )
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+          color: Color(0xFF535D26), // Цвет контейнера
+        ), // Ваш дочерний виджет
+        height: 80,
+        child: SizedBox( // Ограничиваем дочерние элементы BottomAppBar
+          height: 30, // Задаем минимальную высоту
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                icon: SvgPicture.asset("assets/icons/lemon.svg"),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.favorite),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.account_circle),
+                onPressed: () {},
+              ),
             ],
           ),
         ),
@@ -602,6 +641,12 @@ class _MenuPageState extends State<MenuPage> {
                 Navigator.pop(context, 'Новосибирск');
               },
               child: Text('Новосибирск'),
+            ),
+            SimpleDialogOption(
+              onPressed: () {
+                Navigator.pop(context, 'Сургут');
+              },
+              child: Text('Сургут'),
             ),
             // Добавьте свои города по аналогии
           ],

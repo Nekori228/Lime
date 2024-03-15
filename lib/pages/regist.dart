@@ -199,7 +199,7 @@ class _RegistPageState extends State<RegistPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40),
                   ),
-                  primary: Color(0xFF9DD153),
+                  // primary: Color(0xFF9DD153),
                 ),
                 child: SizedBox(
                   height: 55,
