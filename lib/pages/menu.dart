@@ -13,17 +13,26 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   String _selectedCity = 'Выберите город';
 
+  Image _image1 = Image.asset("assets/icons/limeMenu.png");
+  Image _image2 = Image.asset("assets/icons/memesIcons.png");
+  Image _image3 = Image.asset("assets/icons/locationIcons.png");
+  Image _image4 = Image.asset("assets/icons/shoppingIcons.png");
+
   Color button1Color = Color(0xFFF7F0DA);
   Color button2Color = Color(0xFFF7F0DA);
   Color buttonText1TextColor = Color(0xFF5C913B);
   Color buttonText2TextColor = Color(0xFF5C913B);
   Color buttonText3TextColor = Color(0xFF5C913B);
   Color buttonText4TextColor = Color(0xFF5C913B);
+  Color buttonText5TextColor = Color(0xFF5C913B);
+  Color buttonText6TextColor = Color(0xFF5C913B);
 
   bool isButton1Pressed = false;
   bool isButton2Pressed = false;
   bool isButton3Pressed = false;
   bool isButton4Pressed = false;
+  bool isButton5Pressed = false;
+  bool isButton6Pressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -92,40 +101,42 @@ class _MenuPageState extends State<MenuPage> {
                                           CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        // SizedBox(
-                                        //   width: 160,
-                                        //   child: ElevatedButton(
-                                        //     onPressed: () {
-                                        //       setState(() {
-                                        //         button1Color = Color(0xFFD6A875);
-                                        //         button2Color = Color(0xFFF7F0DA);
-                                        //
-                                        //         isButton1Pressed =
-                                        //             !isButton1Pressed;
-                                        //       });
-                                        //     },
-                                        //     style: ButtonStyle(
-                                        //       backgroundColor:
-                                        //           MaterialStateProperty.all(
-                                        //               button1Color),
-                                        //       elevation:
-                                        //           MaterialStateProperty.all(0.0),
-                                        //     ),
-                                        //     child: Text(
-                                        //       'Доставка',
-                                        //       style: GoogleFonts.roboto(
-                                        //           color: button2Color ==
-                                        //                   Color(0xFFF7F0DA)
-                                        //               ? Color(0xFFF7F0DA)
-                                        //               : Color(0xFF0D2100),
-                                        //           fontSize: 18,
-                                        //           fontWeight: FontWeight.bold),
-                                        //     ),
-                                        //   ),
-                                        // ),
+                                        SizedBox(
+                                          width: 175,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              setState(() {
+                                                button1Color = Color(0xFFD6A875);
+                                                button2Color = Color(0xFFF7F0DA);
+
+                                                isButton1Pressed =
+                                                !isButton1Pressed;
+                                              });
+                                            },
+                                            style: ButtonStyle(
+                                              backgroundColor: MaterialStateProperty.all(button1Color),
+                                              elevation: MaterialStateProperty.all(0.0),
+                                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                                RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(5),
+                                                ),
+                                              ),
+                                            ),
+                                            child: Text(
+                                              'Доставка',
+                                              style: GoogleFonts.roboto(
+                                                color: button1Color == Color(0xFF0D2100)
+                                                    ? Color(0xFFF7F0DA)
+                                                    : Color(0xFF0D2100),
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                         SizedBox(width: 5),
                                         SizedBox(
-                                          width: 160,
+                                          width: 175,
                                           child: ElevatedButton(
                                             onPressed: () {
                                               setState(() {
@@ -142,6 +153,11 @@ class _MenuPageState extends State<MenuPage> {
                                                       button2Color),
                                               elevation:
                                                   MaterialStateProperty.all(0.0),
+                                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                                RoundedRectangleBorder(
+                                                  borderRadius: BorderRadius.circular(5),
+                                                ),
+                                              ),
                                             ),
                                             child: Text(
                                               'В кафе',
@@ -243,7 +259,7 @@ class _MenuPageState extends State<MenuPage> {
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(
-                                  41), // Установите радиус закругления
+                                  41),
                             ),
                           ),
                         ),
@@ -299,20 +315,20 @@ class _MenuPageState extends State<MenuPage> {
                       child: TextButton(
                         onPressed: () {
                           setState(() {
-                            isButton3Pressed = false;
-                            isButton4Pressed = !isButton4Pressed;
-                            buttonText3TextColor = isButton4Pressed
+                            isButton5Pressed = false;
+                            isButton6Pressed = !isButton6Pressed;
+                            buttonText4TextColor = isButton5Pressed
                                 ? Color(0xFFF7F0DA)
                                 : Color(0xFF5C913B);
                           });
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                            isButton4Pressed ? Color(0xFF5C913B) : null,
+                            isButton6Pressed ? Color(0xFF5C913B) : null,
                           ),
                           side: MaterialStateProperty.all(
                             BorderSide(
-                              color: isButton4Pressed
+                              color: isButton6Pressed
                                   ? Colors.transparent
                                   : Color(0xFF5C913B),
                               width: 2.0,
@@ -326,9 +342,9 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         ),
                         child: Text(
-                          'Комбо',
+                          'Закуски',
                           style: GoogleFonts.roboto(
-                              color: buttonText3TextColor, fontSize: 16),
+                              color: buttonText2TextColor, fontSize: 16),
                         ),
                       ),
                     ),
@@ -338,8 +354,9 @@ class _MenuPageState extends State<MenuPage> {
                       child: TextButton(
                         onPressed: () {
                           setState(() {
+                            isButton3Pressed = false;
                             isButton4Pressed = !isButton4Pressed;
-                            buttonText4TextColor = isButton4Pressed
+                            buttonText2TextColor = isButton4Pressed
                                 ? Color(0xFFF7F0DA)
                                 : Color(0xFF5C913B);
                           });
@@ -364,13 +381,12 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                         ),
                         child: Text(
-                          'Комбо',
+                          'Закуски',
                           style: GoogleFonts.roboto(
-                              color: buttonText4TextColor, fontSize: 16),
+                              color: buttonText2TextColor, fontSize: 16),
                         ),
                       ),
                     ),
-                    SizedBox(width: 15),
                   ],
                 ),
               ),
@@ -592,20 +608,52 @@ class _MenuPageState extends State<MenuPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               IconButton(
-                icon: SvgPicture.asset("assets/icons/lemon.svg"),
-                onPressed: () {},
+                icon: _image1,
+                onPressed: () {
+                  setState(() {
+                    _image1 = Image.asset("assets/icons/lemonIconPresed.png");
+                  });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondScreen()),
+                  );
+                },
               ),
               IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {},
+                icon: _image2,
+                onPressed: () {
+                  setState(() {
+                    _image2 = Image.asset("assets/icons/memesIconPresed.png");
+                  });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondScreen()),
+                  );
+                },
               ),
               IconButton(
-                icon: Icon(Icons.favorite),
-                onPressed: () {},
+                icon: _image3,
+                onPressed: () {
+                  setState(() {
+                    _image3 = Image.asset("assets/icons/LocationIconPresed.png");
+                  });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondScreen()),
+                  );
+                },
               ),
               IconButton(
-                icon: Icon(Icons.account_circle),
-                onPressed: () {},
+                icon: _image4,
+                onPressed: () {
+                  setState(() {
+                    _image4 = Image.asset("assets/icons/shoppingconPresed.png");
+                  });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondScreen()),
+                  );
+                },
               ),
             ],
           ),
@@ -659,5 +707,95 @@ class _MenuPageState extends State<MenuPage> {
         _selectedCity = selectedCity;
       });
     }
+  }
+}
+
+
+class SecondScreen extends StatefulWidget {
+  @override
+  State<SecondScreen> createState() => _SecondScreenState();
+}
+
+class _SecondScreenState extends State<SecondScreen> {
+
+  Image _image1 = Image.asset("assets/icons/limeMenu.png");
+  Image _image2 = Image.asset("assets/icons/memesIcons.png");
+  Image _image3 = Image.asset("assets/icons/locationIcons.png");
+  Image _image4 = Image.asset("assets/icons/shoppingIcons.png");
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Screen"),
+      ),
+      body: Container(),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+          color: Color(0xFF535D26), // Цвет контейнера
+        ), // Ваш дочерний виджет
+        height: 80,
+        child: SizedBox( // Ограничиваем дочерние элементы BottomAppBar
+          height: 30, // Задаем минимальную высоту
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                icon: _image1,
+                onPressed: () {
+                  setState(() {
+                    _image1 = Image.asset("assets/icons/lemonIconPresed.png");
+                  });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondScreen()),
+                  );
+                },
+              ),
+              IconButton(
+                icon: _image2,
+                onPressed: () {
+                  setState(() {
+                    _image2 = Image.asset("assets/icons/memesIconPresed.png");
+                  });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondScreen()),
+                  );
+                },
+              ),
+              IconButton(
+                icon: _image3,
+                onPressed: () {
+                  setState(() {
+                    _image3 = Image.asset("assets/icons/LocationIconPresed.png");
+                  });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondScreen()),
+                  );
+                },
+              ),
+              IconButton(
+                icon: _image4,
+                onPressed: () {
+                  setState(() {
+                    _image4 = Image.asset("assets/icons/shoppingconPresed.png");
+                  });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondScreen()),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
