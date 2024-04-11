@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'menyEnter.dart';
+
 class MenuPage extends StatefulWidget {
   MenuPage({Key? key}) : super(key: key);
 
@@ -593,72 +595,73 @@ class _MenuPageState extends State<MenuPage> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
-          ),
-          color: Color(0xFF535D26), // Цвет контейнера
-        ), // Ваш дочерний виджет
-        height: 80,
-        child: SizedBox( // Ограничиваем дочерние элементы BottomAppBar
-          height: 30, // Задаем минимальную высоту
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              IconButton(
-                icon: _image1,
-                onPressed: () {
-                  setState(() {
-                    _image1 = Image.asset("assets/icons/lemonIconPresed.png");
-                  });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SecondScreen()),
-                  );
-                },
-              ),
-              IconButton(
-                icon: _image2,
-                onPressed: () {
-                  setState(() {
-                    _image2 = Image.asset("assets/icons/memesIconPresed.png");
-                  });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SecondScreen()),
-                  );
-                },
-              ),
-              IconButton(
-                icon: _image3,
-                onPressed: () {
-                  setState(() {
-                    _image3 = Image.asset("assets/icons/LocationIconPresed.png");
-                  });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SecondScreen()),
-                  );
-                },
-              ),
-              IconButton(
-                icon: _image4,
-                onPressed: () {
-                  setState(() {
-                    _image4 = Image.asset("assets/icons/shoppingconPresed.png");
-                  });
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SecondScreen()),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
+      bottomNavigationBar: ProjectBottomNavBar(),
+      // bottomNavigationBar: Container(
+      //   decoration: BoxDecoration(
+      //     borderRadius: BorderRadius.only(
+      //       topLeft: Radius.circular(20.0),
+      //       topRight: Radius.circular(20.0),
+      //     ),
+      //     color: Color(0xFF535D26), // Цвет контейнера
+      //   ), // Ваш дочерний виджет
+      //   height: 80,
+      //   child: SizedBox( // Ограничиваем дочерние элементы BottomAppBar
+      //     height: 30, // Задаем минимальную высоту
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //       children: <Widget>[
+      //         IconButton(
+      //           icon: _image1,
+      //           onPressed: () {
+      //             setState(() {
+      //               _image1 = Image.asset("assets/icons/lemonIconPresed.png");
+      //             });
+      //             Navigator.push(
+      //               context,
+      //               MaterialPageRoute(builder: (context) => SecondScreen()),
+      //             );
+      //           },
+      //         ),
+      //         IconButton(
+      //           icon: _image2,
+      //           onPressed: () {
+      //             setState(() {
+      //               _image2 = Image.asset("assets/icons/memesIconPresed.png");
+      //             });
+      //             Navigator.push(
+      //               context,
+      //               MaterialPageRoute(builder: (context) => SecondScreen()),
+      //             );
+      //           },
+      //         ),
+      //         IconButton(
+      //           icon: _image3,
+      //           onPressed: () {
+      //             setState(() {
+      //               _image3 = Image.asset("assets/icons/LocationIconPresed.png");
+      //             });
+      //             Navigator.push(
+      //               context,
+      //               MaterialPageRoute(builder: (context) => SecondScreen()),
+      //             );
+      //           },
+      //         ),
+      //         IconButton(
+      //           icon: _image4,
+      //           onPressed: () {
+      //             setState(() {
+      //               _image4 = Image.asset("assets/icons/shoppingconPresed.png");
+      //             });
+      //             Navigator.push(
+      //               context,
+      //               MaterialPageRoute(builder: (context) => SecondScreen()),
+      //             );
+      //           },
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
     );
   }
 
