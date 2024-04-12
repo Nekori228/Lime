@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:lime/pages/profile.dart';
+import 'package:lime/pages/shop.dart';
 import '../../globals.dart';
 import 'locate.dart';
 import 'menu.dart';
@@ -18,9 +20,9 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
   void onSelectTab(int index) {
     var listWidget = [
       MenuPage(),
+      ProfilePage(),
       LocatePage(),
-      MenuPage(),
-      MenuPage(),
+      ShopPage(),
     ];
     if (selectedPage != index) {
       setState(() {
@@ -33,28 +35,23 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      color: Colors.black,
+      height: 76,
+      color: Color(0xFF535D26),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, mainAxisSize: MainAxisSize.min, children: [
         SizedBox(
-          width: 80,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
-                icon: selectedPage == 0 ? Image.asset('assets/images/main_pressed.png') : Image.asset("assets/images/main.png"),
+                icon: selectedPage == 0 ? Image.asset('assets/icons/lemonIconPresed.png') : Image.asset("assets/icons/limeMenu.png"),
                 onPressed: () {
                   onSelectTab(0);
                 },
               ),
-              Text(
-                'Главная\n',
-                style: TextStyle(color: selectedPage == 0 ? Color(0xFFF7FF88) : Color(0xFF858582)),
-              )
             ],
           ),
         ),
         SizedBox(
-          width: 80,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -65,11 +62,11 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
                   child: badges.Badge(
                     child: selectedPage == 1
                         ? Image.asset(
-                      'assets/images/cart_pressed.png',
+                      'assets/icons/memesIconPresed.png',
                       height: 30,
                     )
                         : Image.asset(
-                        "assets/images/cart"
+                        "assets/icons/memesIcons"
                             ".png",
                         height: 30),
                     badgeContent: Text(card.length.toString(), style: TextStyle(color: Colors.white),),
@@ -80,55 +77,40 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
                   },
                 ),
               ),
-              Text(
-                'Корзина\n',
-                style: TextStyle(color: selectedPage == 1 ? Color(0xFFF7FF88) : Color(0xFF858582)),
-              )
             ],
           ),
         ),
         SizedBox(
-          width: 80,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
                 icon: selectedPage == 2
-                    ? Image.asset('assets/images/calendar_pressed.png')
+                    ? Image.asset('assets/icons/LocationIconPresed.png')
                     : Image.asset(
-                  "assets/images/calendar.png",
+                  "assets/icons/locationIcons.png",
                 ),
                 onPressed: () {
                   onSelectTab(2);
                 },
               ),
-              Text(
-                'Бронирование',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: selectedPage == 2 ? Color(0xFFF7FF88) : Color(0xFF858582)),
-              )
             ],
           ),
         ),
         SizedBox(
-          width: 80,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
                 icon: selectedPage == 3
-                    ? Image.asset('assets/images/person_pressed.png')
+                    ? Image.asset('assets/icons/shoppingconPresed.png')
                     : Image.asset(
-                  "assets/images/person.png",
+                  "assets/icons/shoppingIcons.png",
                 ),
                 onPressed: () {
                   onSelectTab(3);
                 },
               ),
-              Text(
-                'Профиль\n',
-                style: TextStyle(color: selectedPage == 3 ? Color(0xFFF7FF88) : Color(0xFF858582)),
-              )
             ],
           ),
         ),
