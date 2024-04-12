@@ -10,6 +10,7 @@ class LocatePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFEBE2C7),
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
