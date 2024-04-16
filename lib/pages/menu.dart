@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'itemPage.dart';
 import 'menyEnter.dart';
 
 class MenuPage extends StatefulWidget {
@@ -393,103 +395,112 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ),
               SizedBox(height: 10),
-              SizedBox(
-                height: 340,
-                child: Stack(
-                  children: [
-                    Center(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: MediaQuery.of(context).size.width * 0.07),
-                        width: MediaQuery.of(context).size.width,
-                        height: 280,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(11),
-                          color: Color(0xFFFFFBF0),
-                        ),
-                      ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => ItemPage(),
                     ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(40, 40, 0, 0),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                width: 160,
-                                child: Text(
-                                  'Блинчики\nс лесными ягодами',
-                                  style: GoogleFonts.roboto(
-                                      color: Color(0xFF9DD153),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w900),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 160,
-                                child: Text(
-                                  'Горячие сытные блинчики по-домашнему, с клубникой и черникой, политые сиропом.',
-                                  style: GoogleFonts.roboto(
-                                      color: Color(0xFF476533).withOpacity(0.6),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 25,
-                              ),
-                              SizedBox(
-                                width: 150,
-                                child: TextButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      // isButton3Pressed = false;
-                                      // isButton4Pressed = !isButton4Pressed;
-                                      // buttonText2TextColor = isButton4Pressed
-                                      //     ? Color(0xFFF7F0DA)
-                                      //     : Color(0xFF5C913B);
-                                    });
-                                  },
-                                  style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                      Color(0xFFE29845),
-                                    ),
-                                    // side: MaterialStateProperty.all(
-                                    //   BorderSide(
-                                    //     color: isButton4Pressed
-                                    //         ? Colors.transparent
-                                    //         : Color(0xFFE29845),
-                                    //     width: 2.0,
-                                    //   ),
-                                    // ),
-                                    shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(41),
-                                      ),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    'В корзину',
-                                    style: GoogleFonts.roboto(
-                                        color: Color(0xFFFFFBF0),
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                ),
-                              ),
-                            ],
+                  );
+                },
+                child: SizedBox(
+                  height: 340,
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Container(
+                          margin: EdgeInsets.symmetric(
+                              horizontal: MediaQuery.of(context).size.width * 0.07),
+                          width: MediaQuery.of(context).size.width,
+                          height: 280,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(11),
+                            color: Color(0xFFFFFBF0),
                           ),
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              width: 190,
-                                child: Image.asset('assets/photo/eat.png')),
-                          ],
-                        )
-                      ],
-                    )
-                  ],
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(40, 40, 0, 0),
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  width: 160,
+                                  child: Text(
+                                    'Блинчики\nс лесными ягодами',
+                                    style: GoogleFonts.roboto(
+                                        color: Color(0xFF9DD153),
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w900),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 160,
+                                  child: Text(
+                                    'Горячие сытные блинчики по-домашнему, с клубникой и черникой, политые сиропом.',
+                                    style: GoogleFonts.roboto(
+                                        color: Color(0xFF476533).withOpacity(0.6),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                SizedBox(
+                                  width: 150,
+                                  child: TextButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        // isButton3Pressed = false;
+                                        // isButton4Pressed = !isButton4Pressed;
+                                        // buttonText2TextColor = isButton4Pressed
+                                        //     ? Color(0xFFF7F0DA)
+                                        //     : Color(0xFF5C913B);
+                                      });
+                                    },
+                                    style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty.all(
+                                        Color(0xFFE29845),
+                                      ),
+                                      // side: MaterialStateProperty.all(
+                                      //   BorderSide(
+                                      //     color: isButton4Pressed
+                                      //         ? Colors.transparent
+                                      //         : Color(0xFFE29845),
+                                      //     width: 2.0,
+                                      //   ),
+                                      // ),
+                                      shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(41),
+                                        ),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'В корзину',
+                                      style: GoogleFonts.roboto(
+                                          color: Color(0xFFFFFBF0),
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                width: 190,
+                                  child: Image.asset('assets/photo/eat.png')),
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               SizedBox(

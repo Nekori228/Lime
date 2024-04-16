@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'mapPage.dart';
 import 'menyEnter.dart';
 
 class LocatePage extends StatelessWidget {
@@ -21,7 +22,13 @@ class LocatePage extends StatelessWidget {
                 SizedBox(
                   width: 350,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => MapPage(),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
@@ -35,7 +42,7 @@ class LocatePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Пиццерии на карте ',
+                          'Кафе на карте',
                           style: TextStyle(
                               color: Color(0xFFFFFFFF),
                               fontSize: 24,
@@ -61,7 +68,8 @@ class LocatePage extends StatelessWidget {
                   width: 350,
                   child: ElevatedButton(
                     onPressed: () {
-                      _launchCaller('+79224265608'); // Замените номером телефона на свой
+                      _launchCaller(
+                          '+79224265608'); // Замените номером телефона на свой
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
@@ -79,10 +87,9 @@ class LocatePage extends StatelessWidget {
                           child: Text(
                             'Позвонить',
                             style: TextStyle(
-                              color: Color(0xFFFFFFFF),
+                                color: Color(0xFFFFFFFF),
                                 fontSize: 24,
-                                fontWeight: FontWeight.w600
-                            ),
+                                fontWeight: FontWeight.w600),
                           ),
                         ),
                         Padding(
