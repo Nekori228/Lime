@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lime/globals.dart';
+import 'package:lime/pages/test.dart';
 
 import 'itemPage.dart';
+import 'itemPage2.dart';
 import 'menyEnter.dart';
 
 class MenuPage extends StatefulWidget {
@@ -37,6 +40,9 @@ class _MenuPageState extends State<MenuPage> {
   bool isButton4Pressed = false;
   bool isButton5Pressed = false;
   bool isButton6Pressed = false;
+
+  final Cart cart = Cart(items: []);
+  final List<String> items = ['Item 1'];
 
   @override
   Widget build(BuildContext context) {
@@ -103,33 +109,49 @@ class _MenuPageState extends State<MenuPage> {
                                     Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         SizedBox(
                                           width: 175,
                                           child: ElevatedButton(
                                             onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        CartPage(cart: cart)),
+                                              );
                                               setState(() {
-                                                button1Color = Color(0xFFD6A875);
-                                                button2Color = Color(0xFFF7F0DA);
+                                                button1Color =
+                                                    Color(0xFFD6A875);
+                                                button2Color =
+                                                    Color(0xFFF7F0DA);
 
                                                 isButton1Pressed =
-                                                !isButton1Pressed;
+                                                    !isButton1Pressed;
                                               });
                                             },
                                             style: ButtonStyle(
-                                              backgroundColor: MaterialStateProperty.all(button1Color),
-                                              elevation: MaterialStateProperty.all(0.0),
-                                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                              backgroundColor:
+                                                  MaterialStateProperty.all(
+                                                      button1Color),
+                                              elevation:
+                                                  MaterialStateProperty.all(
+                                                      0.0),
+                                              shape: MaterialStateProperty.all<
+                                                  RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(5),
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
                                                 ),
                                               ),
                                             ),
                                             child: Text(
                                               'Доставка',
                                               style: GoogleFonts.roboto(
-                                                color: button1Color == Color(0xFF0D2100)
+                                                color: button1Color ==
+                                                        Color(0xFF0D2100)
                                                     ? Color(0xFFF7F0DA)
                                                     : Color(0xFF0D2100),
                                                 fontSize: 18,
@@ -144,8 +166,10 @@ class _MenuPageState extends State<MenuPage> {
                                           child: ElevatedButton(
                                             onPressed: () {
                                               setState(() {
-                                                button2Color = Color(0xFFD6A875);
-                                                button1Color = Color(0xFFF7F0DA);
+                                                button2Color =
+                                                    Color(0xFFD6A875);
+                                                button1Color =
+                                                    Color(0xFFF7F0DA);
 
                                                 isButton2Pressed =
                                                     !isButton2Pressed;
@@ -156,10 +180,13 @@ class _MenuPageState extends State<MenuPage> {
                                                   MaterialStateProperty.all(
                                                       button2Color),
                                               elevation:
-                                                  MaterialStateProperty.all(0.0),
-                                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                                  MaterialStateProperty.all(
+                                                      0.0),
+                                              shape: MaterialStateProperty.all<
+                                                  RoundedRectangleBorder>(
                                                 RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(5),
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
                                                 ),
                                               ),
                                             ),
@@ -262,8 +289,7 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  41),
+                              borderRadius: BorderRadius.circular(41),
                             ),
                           ),
                         ),
@@ -399,6 +425,125 @@ class _MenuPageState extends State<MenuPage> {
                 onTap: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
+                      builder: (context) => ItemPage2(),
+                    ),
+                  );
+                },
+                child: SizedBox(
+                  height: 340,
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Container(
+                          margin: EdgeInsets.symmetric(
+                              horizontal:
+                                  MediaQuery.of(context).size.width * 0.07),
+                          width: MediaQuery.of(context).size.width,
+                          height: 280,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(11),
+                            color: Color(0xFFFFFBF0),
+                          ),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 430,
+                            height: 300,
+                            child: ListView.builder(
+                              itemCount: items.length,
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                    title: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          40, 40, 0, 0),
+                                      child: Column(
+                                        children: [
+                                          SizedBox(
+                                            width: 160,
+                                            child: Text(
+                                              'Блинчики\nс лесными ягодами',
+                                              style: GoogleFonts.roboto(
+                                                  color: Color(0xFF9DD153),
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w900),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 160,
+                                            child: Text(
+                                              'Горячие сытные блинчики по-домашнему, с клубникой и черникой, политые сиропом.',
+                                              style: GoogleFonts.roboto(
+                                                  color: Color(0xFF476533)
+                                                      .withOpacity(0.6),
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 25,
+                                          ),
+                                          SizedBox(
+                                            width: 150,
+                                            child: TextButton(
+                                              onPressed: () {
+                                                cart.add(items[index]);
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                      content: Text(
+                                                          '${items[index]} added to cart')),
+                                                );
+                                              },
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty.all(
+                                                  Color(0xFFE29845),
+                                                ),
+                                                shape:
+                                                    MaterialStateProperty.all(
+                                                  RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            41),
+                                                  ),
+                                                ),
+                                              ),
+                                              child: Text(
+                                                'В корзину',
+                                                style: GoogleFonts.roboto(
+                                                    color: Color(0xFFFFFBF0),
+                                                    fontSize: 20,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    trailing: Column(
+                                      children: [
+                                        Container(
+                                            width: 190,
+                                            child: Image.asset(
+                                                'assets/photo/eat.png')),
+                                      ],
+                                    ));
+                              },
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
                       builder: (context) => ItemPage(),
                     ),
                   );
@@ -410,7 +555,8 @@ class _MenuPageState extends State<MenuPage> {
                       Center(
                         child: Container(
                           margin: EdgeInsets.symmetric(
-                              horizontal: MediaQuery.of(context).size.width * 0.07),
+                              horizontal:
+                                  MediaQuery.of(context).size.width * 0.07),
                           width: MediaQuery.of(context).size.width,
                           height: 280,
                           decoration: BoxDecoration(
@@ -428,7 +574,7 @@ class _MenuPageState extends State<MenuPage> {
                                 SizedBox(
                                   width: 160,
                                   child: Text(
-                                    'Блинчики\nс лесными ягодами',
+                                    'Завтрак “Легкий”',
                                     style: GoogleFonts.roboto(
                                         color: Color(0xFF9DD153),
                                         fontSize: 18,
@@ -438,9 +584,10 @@ class _MenuPageState extends State<MenuPage> {
                                 SizedBox(
                                   width: 160,
                                   child: Text(
-                                    'Горячие сытные блинчики по-домашнему, с клубникой и черникой, политые сиропом.',
+                                    'Ржаной хлебушек, яйцо, сливочный сыр, помидоры, и листья базилика',
                                     style: GoogleFonts.roboto(
-                                        color: Color(0xFF476533).withOpacity(0.6),
+                                        color:
+                                            Color(0xFF476533).withOpacity(0.6),
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500),
                                   ),
@@ -461,7 +608,8 @@ class _MenuPageState extends State<MenuPage> {
                                       });
                                     },
                                     style: ButtonStyle(
-                                      backgroundColor: MaterialStateProperty.all(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
                                         Color(0xFFE29845),
                                       ),
                                       // side: MaterialStateProperty.all(
@@ -474,7 +622,8 @@ class _MenuPageState extends State<MenuPage> {
                                       // ),
                                       shape: MaterialStateProperty.all(
                                         RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(41),
+                                          borderRadius:
+                                              BorderRadius.circular(41),
                                         ),
                                       ),
                                     ),
@@ -493,113 +642,14 @@ class _MenuPageState extends State<MenuPage> {
                           Column(
                             children: [
                               Container(
-                                width: 190,
-                                  child: Image.asset('assets/photo/eat.png')),
+                                  width: 190,
+                                  child: Image.asset('assets/photo/eat2.png')),
                             ],
                           )
                         ],
                       )
                     ],
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 340,
-                child: Stack(
-                  children: [
-                    Center(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(
-                            horizontal: MediaQuery.of(context).size.width * 0.07),
-                        width: MediaQuery.of(context).size.width,
-                        height: 280,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(11),
-                          color: Color(0xFFFFFBF0),
-                        ),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(40, 40, 0, 0),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                width: 160,
-                                child: Text(
-                                  'Блинчики\nс лесными ягодами',
-                                  style: GoogleFonts.roboto(
-                                      color: Color(0xFF9DD153),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w900),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 160,
-                                child: Text(
-                                  'Горячие сытные блинчики по-домашнему, с клубникой и черникой, политые сиропом.',
-                                  style: GoogleFonts.roboto(
-                                      color: Color(0xFF476533).withOpacity(0.6),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 25,
-                              ),
-                              SizedBox(
-                                width: 150,
-                                child: TextButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      // isButton3Pressed = false;
-                                      // isButton4Pressed = !isButton4Pressed;
-                                      // buttonText2TextColor = isButton4Pressed
-                                      //     ? Color(0xFFF7F0DA)
-                                      //     : Color(0xFF5C913B);
-                                    });
-                                  },
-                                  style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                      Color(0xFFE29845),
-                                    ),
-                                    // side: MaterialStateProperty.all(
-                                    //   BorderSide(
-                                    //     color: isButton4Pressed
-                                    //         ? Colors.transparent
-                                    //         : Color(0xFFE29845),
-                                    //     width: 2.0,
-                                    //   ),
-                                    // ),
-                                    shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(41),
-                                      ),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    'В корзину',
-                                    style: GoogleFonts.roboto(
-                                        color: Color(0xFFFFFBF0),
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                                width: 190,
-                                child: Image.asset('assets/photo/eat2.png')),
-                          ],
-                        )
-                      ],
-                    )
-                  ],
                 ),
               )
             ],
@@ -724,14 +774,12 @@ class _MenuPageState extends State<MenuPage> {
   }
 }
 
-
 class SecondScreen extends StatefulWidget {
   @override
   State<SecondScreen> createState() => _SecondScreenState();
 }
 
 class _SecondScreenState extends State<SecondScreen> {
-
   Image _image1 = Image.asset("assets/icons/limeMenu.png");
   Image _image2 = Image.asset("assets/icons/memesIcons.png");
   Image _image3 = Image.asset("assets/icons/locationIcons.png");
@@ -753,7 +801,8 @@ class _SecondScreenState extends State<SecondScreen> {
           color: Color(0xFF535D26), // Цвет контейнера
         ), // Ваш дочерний виджет
         height: 80,
-        child: SizedBox( // Ограничиваем дочерние элементы BottomAppBar
+        child: SizedBox(
+          // Ограничиваем дочерние элементы BottomAppBar
           height: 30, // Задаем минимальную высоту
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -786,7 +835,8 @@ class _SecondScreenState extends State<SecondScreen> {
                 icon: _image3,
                 onPressed: () {
                   setState(() {
-                    _image3 = Image.asset("assets/icons/LocationIconPresed.png");
+                    _image3 =
+                        Image.asset("assets/icons/LocationIconPresed.png");
                   });
                   Navigator.push(
                     context,

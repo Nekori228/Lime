@@ -3,6 +3,8 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'locate.dart';
+
 class MapPage extends StatelessWidget {
   const MapPage({Key? key}) : super(key: key);
 
@@ -10,6 +12,16 @@ class MapPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => LocatePage(),
+              ),
+            );
+          },
+        ),
         backgroundColor: Color(0xFFEBE2C7),
         title: Text('Карта'),
       ),

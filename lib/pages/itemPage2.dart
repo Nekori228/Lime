@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'menu.dart';
 
-class ItemPage extends StatelessWidget {
-  const ItemPage({Key? key}) : super(key: key);
+class ItemPage2 extends StatelessWidget {
+  const ItemPage2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ItemPage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 100),
-            Image.asset("assets/photo/eatItemBig.png", width: 260, height: 260),
+            Image.asset("assets/photo/eatItemBig2.png", width: 260, height: 260),
             SizedBox(height: 30),
             Center(
               child: Container(
@@ -44,7 +44,7 @@ class ItemPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Завтрак “Легкий”",
+                          "Блинчики с ягодами",
                           style: TextStyle(
                             color: Color(0xFF9DD153),
                             fontWeight: FontWeight.w800,
@@ -55,7 +55,7 @@ class ItemPage extends StatelessWidget {
                           width: 280,
                           height: 60,
                           child: Text(
-                            "Ржаной хлебушек, яйцо,сливочный сыр, помидоры, и листья базилика",
+                            "Горячие сытные блинчики по-домашнему, с клубникой и черникой, политые сиропом.",
                             style: TextStyle(
                               color: Color(0xFF476533).withOpacity(0.6),
                               fontWeight: FontWeight.w600,
@@ -85,14 +85,14 @@ class ItemPage extends StatelessWidget {
                           enabled: false,
                           child: Text('Ккал: 200',
                               style:
-                                  TextStyle(color: Colors.black, fontSize: 16)),
+                              TextStyle(color: Colors.black, fontSize: 16)),
                         ),
                         PopupMenuItem(
                           value: 3,
                           enabled: false,
                           child: Text('Острота: 0',
                               style:
-                                  TextStyle(color: Colors.black, fontSize: 16)),
+                              TextStyle(color: Colors.black, fontSize: 16)),
                         ),
                       ],
                       onSelected: (value) {
