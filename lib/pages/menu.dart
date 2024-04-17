@@ -41,9 +41,6 @@ class _MenuPageState extends State<MenuPage> {
   bool isButton5Pressed = false;
   bool isButton6Pressed = false;
 
-  final Cart cart = Cart(items: []);
-  final List<String> items = ['Item 1'];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,12 +113,6 @@ class _MenuPageState extends State<MenuPage> {
                                           width: 175,
                                           child: ElevatedButton(
                                             onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        CartPage(cart: cart)),
-                                              );
                                               setState(() {
                                                 button1Color =
                                                     Color(0xFFD6A875);
@@ -430,228 +421,117 @@ class _MenuPageState extends State<MenuPage> {
                   );
                 },
                 child: SizedBox(
-                  height: 340,
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.symmetric(
-                              horizontal:
-                                  MediaQuery.of(context).size.width * 0.07),
-                          width: MediaQuery.of(context).size.width,
-                          height: 280,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(11),
-                            color: Color(0xFFFFFBF0),
-                          ),
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 430,
-                            height: 300,
-                            child: ListView.builder(
-                              itemCount: items.length,
-                              itemBuilder: (context, index) {
-                                return ListTile(
-                                    title: Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          40, 40, 0, 0),
-                                      child: Column(
-                                        children: [
-                                          SizedBox(
-                                            width: 160,
-                                            child: Text(
-                                              'Блинчики\nс лесными ягодами',
-                                              style: GoogleFonts.roboto(
-                                                  color: Color(0xFF9DD153),
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w900),
+                  width: 460,
+                  height: 550,
+                  child: ListView.builder(
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: SizedBox(
+                          height: 340,
+                          child: Stack(
+                            children: [
+                              Center(
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(
+                                      horizontal:
+                                          MediaQuery.of(context).size.width *
+                                              0.07),
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 280,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(11),
+                                    color: Color(0xFFFFFBF0),
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(40, 40, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Column(
+                                          children: [
+                                            SizedBox(
+                                              width: 160,
+                                              child: Text(
+                                                items2[index].name,
+                                                style: GoogleFonts.roboto(
+                                                    color: Color(0xFF9DD153),
+                                                    fontSize: 18,
+                                                    fontWeight:
+                                                        FontWeight.w900),
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(
-                                            width: 160,
-                                            child: Text(
-                                              'Горячие сытные блинчики по-домашнему, с клубникой и черникой, политые сиропом.',
-                                              style: GoogleFonts.roboto(
-                                                  color: Color(0xFF476533)
-                                                      .withOpacity(0.6),
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w500),
+                                            SizedBox(
+                                              width: 160,
+                                              child: Text(
+                                                items2[index].description,
+                                                style: GoogleFonts.roboto(
+                                                    color: Color(0xFF476533)
+                                                        .withOpacity(0.6),
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w500),
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(
-                                            height: 25,
-                                          ),
-                                          SizedBox(
-                                            width: 150,
-                                            child: TextButton(
-                                              onPressed: () {
-                                                cart.add(items[index]);
-                                                ScaffoldMessenger.of(context)
-                                                    .showSnackBar(
-                                                  SnackBar(
-                                                      content: Text(
-                                                          '${items[index]} added to cart')),
-                                                );
-                                              },
-                                              style: ButtonStyle(
-                                                backgroundColor:
-                                                    MaterialStateProperty.all(
-                                                  Color(0xFFE29845),
-                                                ),
-                                                shape:
-                                                    MaterialStateProperty.all(
-                                                  RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            41),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            SizedBox(
+                                              width: 150,
+                                              child: TextButton(
+                                                onPressed: () {
+                                                  cart.add(items[index]);
+                                                },
+                                                style: ButtonStyle(
+                                                  backgroundColor:
+                                                      MaterialStateProperty.all(
+                                                    Color(0xFFE29845),
+                                                  ),
+                                                  shape:
+                                                      MaterialStateProperty.all(
+                                                    RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              41),
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              child: Text(
-                                                'В корзину',
-                                                style: GoogleFonts.roboto(
-                                                    color: Color(0xFFFFFBF0),
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.w700),
+                                                child: Text(
+                                                  'В корзину',
+                                                  style: GoogleFonts.roboto(
+                                                      color: Color(0xFFFFFBF0),
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.w700),
+                                                ),
                                               ),
                                             ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          width: 180,
+                                          height: 180,
+                                          child: Image.asset(
+                                            items2[index].photo,
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                    trailing: Column(
-                                      children: [
-                                        Container(
-                                            width: 190,
-                                            child: Image.asset(
-                                                'assets/photo/eat.png')),
+                                        )
                                       ],
-                                    ));
-                              },
-                            ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
                           ),
-                        ],
-                      )
-                    ],
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => ItemPage(),
-                    ),
-                  );
-                },
-                child: SizedBox(
-                  height: 340,
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.symmetric(
-                              horizontal:
-                                  MediaQuery.of(context).size.width * 0.07),
-                          width: MediaQuery.of(context).size.width,
-                          height: 280,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(11),
-                            color: Color(0xFFFFFBF0),
-                          ),
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(40, 40, 0, 0),
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  width: 160,
-                                  child: Text(
-                                    'Завтрак “Легкий”',
-                                    style: GoogleFonts.roboto(
-                                        color: Color(0xFF9DD153),
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w900),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 160,
-                                  child: Text(
-                                    'Ржаной хлебушек, яйцо, сливочный сыр, помидоры, и листья базилика',
-                                    style: GoogleFonts.roboto(
-                                        color:
-                                            Color(0xFF476533).withOpacity(0.6),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 25,
-                                ),
-                                SizedBox(
-                                  width: 150,
-                                  child: TextButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        // isButton3Pressed = false;
-                                        // isButton4Pressed = !isButton4Pressed;
-                                        // buttonText2TextColor = isButton4Pressed
-                                        //     ? Color(0xFFF7F0DA)
-                                        //     : Color(0xFF5C913B);
-                                      });
-                                    },
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                        Color(0xFFE29845),
-                                      ),
-                                      // side: MaterialStateProperty.all(
-                                      //   BorderSide(
-                                      //     color: isButton4Pressed
-                                      //         ? Colors.transparent
-                                      //         : Color(0xFFE29845),
-                                      //     width: 2.0,
-                                      //   ),
-                                      // ),
-                                      shape: MaterialStateProperty.all(
-                                        RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(41),
-                                        ),
-                                      ),
-                                    ),
-                                    child: Text(
-                                      'В корзину',
-                                      style: GoogleFonts.roboto(
-                                          color: Color(0xFFFFFBF0),
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                  width: 190,
-                                  child: Image.asset('assets/photo/eat2.png')),
-                            ],
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              )
             ],
           ),
         ),

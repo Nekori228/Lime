@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:lime/pages/profile.dart';
 import 'package:lime/pages/shop.dart';
+import 'package:lime/pages/test.dart';
 import '../../globals.dart';
 import 'locate.dart';
 import 'menu.dart';
@@ -22,7 +23,7 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
       MenuPage(),
       ProfilePage(),
       LocatePage(),
-      ShopPage(),
+      CartPage(cart: cart,),
     ];
     if (selectedPage != index) {
       setState(() {
