@@ -27,7 +27,7 @@ class MapPage extends StatelessWidget {
       ),
       body: FlutterMap(
         options: MapOptions(
-          center: LatLng(61.25, 73.4167),
+          center: LatLng(61.09, 72.61),
           zoom: 12.2,
         ),
         children: [
@@ -40,42 +40,7 @@ class MapPage extends StatelessWidget {
               Marker(
                 width: 80.0,
                 height: 80.0,
-                point: LatLng(61.25, 73.4167),
-                child: GestureDetector(
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text('Информация о метке'),
-                          content: Text('Текст, описывающий метку'),
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text('Закрыть'),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: Tooltip(
-                    message: 'Нажмите, чтобы узнать больше',
-                    child: Container(
-                      child: Icon(
-                        Icons.location_on,
-                        color: Colors.red,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Marker(
-                width: 80.0,
-                height: 80.0,
-                point: LatLng(61.26, 73.37),
+                point: LatLng(61.08866630302494, 72.60678288799673),
                 child: GestureDetector(
                   onTap: () {
                     showDialog(

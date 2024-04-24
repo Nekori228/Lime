@@ -52,31 +52,48 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
             ],
           ),
         ),
+        // SizedBox(
+        //   child: Column(
+        //     mainAxisSize: MainAxisSize.min,
+        //     mainAxisAlignment: MainAxisAlignment.end,
+        //     children: [
+        //       Padding(
+        //         padding: EdgeInsets.all(8),
+        //         child: GestureDetector(
+        //           child: badges.Badge(
+        //             child: selectedPage == 1
+        //                 ? Image.asset(
+        //               'assets/icons/memesIconPresed.png',
+        //               height: 30,
+        //             )
+        //                 : Image.asset(
+        //                 "assets/icons/memesIcons"
+        //                     ".png",
+        //                 height: 30),
+        //             badgeContent: Text(card.length.toString(), style: TextStyle(color: Colors.white),),
+        //             badgeStyle: badges.BadgeStyle(badgeColor: Color(0xff292929)),
+        //           ),
+        //           onTap: () {
+        //             onSelectTab(1);
+        //           },
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
         SizedBox(
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Padding(
-                padding: EdgeInsets.all(8),
-                child: GestureDetector(
-                  child: badges.Badge(
-                    child: selectedPage == 1
-                        ? Image.asset(
-                      'assets/icons/memesIconPresed.png',
-                      height: 30,
-                    )
-                        : Image.asset(
-                        "assets/icons/memesIcons"
-                            ".png",
-                        height: 30),
-                    badgeContent: Text(card.length.toString(), style: TextStyle(color: Colors.white),),
-                    badgeStyle: badges.BadgeStyle(badgeColor: Color(0xff292929)),
-                  ),
-                  onTap: () {
-                    onSelectTab(1);
-                  },
+              IconButton(
+                icon: selectedPage == 1
+                    ? Image.asset('assets/icons/memesIconPresed.png')
+                    : Image.asset(
+                  "assets/icons/memesIcons.png",
                 ),
+                onPressed: () {
+                  onSelectTab(1);
+                },
               ),
             ],
           ),
