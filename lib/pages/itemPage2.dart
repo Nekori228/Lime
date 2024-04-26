@@ -31,6 +31,8 @@ class ItemPage2 extends StatelessWidget {
             SizedBox(height: 30),
             Center(
               child: Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.05),
                 width: 360,
                 height: 140,
                 decoration: BoxDecoration(
@@ -52,7 +54,7 @@ class ItemPage2 extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: 280,
+                          width: 200,
                           height: 60,
                           child: Text(
                             "Горячие сытные блинчики по-домашнему, с клубникой и черникой, политые сиропом.",

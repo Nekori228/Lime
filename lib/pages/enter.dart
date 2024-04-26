@@ -373,6 +373,7 @@ class MyOrangeText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
+      textAlign: TextAlign.center,
       text: TextSpan(
         style: DefaultTextStyle.of(context).style,
         children: <TextSpan>[

@@ -109,87 +109,95 @@ class _MenuPageState extends State<MenuPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        SizedBox(
-                                          width: 175,
-                                          child: ElevatedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                button1Color =
-                                                    Color(0xFFD6A875);
-                                                button2Color =
-                                                    Color(0xFFF7F0DA);
+                                        Expanded(
+                                          child: SizedBox(
+                                            child: Padding(
+                                              padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+                                              child: ElevatedButton(
+                                                onPressed: () {
+                                                  setState(() {
+                                                    button1Color =
+                                                        Color(0xFFD6A875);
+                                                    button2Color =
+                                                        Color(0xFFF7F0DA);
 
-                                                isButton1Pressed =
-                                                    !isButton1Pressed;
-                                              });
-                                            },
-                                            style: ButtonStyle(
-                                              backgroundColor:
-                                                  MaterialStateProperty.all(
-                                                      button1Color),
-                                              elevation:
-                                                  MaterialStateProperty.all(
-                                                      0.0),
-                                              shape: MaterialStateProperty.all<
-                                                  RoundedRectangleBorder>(
-                                                RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
+                                                    isButton1Pressed =
+                                                        !isButton1Pressed;
+                                                  });
+                                                },
+                                                style: ButtonStyle(
+                                                  backgroundColor:
+                                                      MaterialStateProperty.all(
+                                                          button1Color),
+                                                  elevation:
+                                                      MaterialStateProperty.all(
+                                                          0.0),
+                                                  shape: MaterialStateProperty.all<
+                                                      RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(5),
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
-                                            ),
-                                            child: Text(
-                                              'Доставка',
-                                              style: GoogleFonts.roboto(
-                                                color: button1Color ==
-                                                        Color(0xFF0D2100)
-                                                    ? Color(0xFFF7F0DA)
-                                                    : Color(0xFF0D2100),
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold,
+                                                child: Text(
+                                                  'Доставка',
+                                                  style: GoogleFonts.roboto(
+                                                    color: button1Color ==
+                                                            Color(0xFF0D2100)
+                                                        ? Color(0xFFF7F0DA)
+                                                        : Color(0xFF0D2100),
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
                                         SizedBox(width: 5),
-                                        SizedBox(
-                                          width: 175,
-                                          child: ElevatedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                button2Color =
-                                                    Color(0xFFD6A875);
-                                                button1Color =
-                                                    Color(0xFFF7F0DA);
-
-                                                isButton2Pressed =
-                                                    !isButton2Pressed;
-                                              });
-                                            },
-                                            style: ButtonStyle(
-                                              backgroundColor:
-                                                  MaterialStateProperty.all(
-                                                      button2Color),
-                                              elevation:
-                                                  MaterialStateProperty.all(
-                                                      0.0),
-                                              shape: MaterialStateProperty.all<
-                                                  RoundedRectangleBorder>(
-                                                RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
+                                        Expanded(
+                                          child: SizedBox(
+                                            child: Padding(
+                                              padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                              child: ElevatedButton(
+                                                onPressed: () {
+                                                  setState(() {
+                                                    button2Color =
+                                                        Color(0xFFD6A875);
+                                                    button1Color =
+                                                        Color(0xFFF7F0DA);
+                                                                                        
+                                                    isButton2Pressed =
+                                                        !isButton2Pressed;
+                                                  });
+                                                },
+                                                style: ButtonStyle(
+                                                  backgroundColor:
+                                                      MaterialStateProperty.all(
+                                                          button2Color),
+                                                  elevation:
+                                                      MaterialStateProperty.all(
+                                                          0.0),
+                                                  shape: MaterialStateProperty.all<
+                                                      RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(5),
+                                                    ),
+                                                  ),
+                                                ),
+                                                child: Text(
+                                                  'В кафе',
+                                                  style: GoogleFonts.roboto(
+                                                      color: button2Color ==
+                                                              Color(0xFFD6A875)
+                                                          ? Color(0xFFF7F0DA)
+                                                          : Color(0xFF0D2100),
+                                                      fontSize: 18,
+                                                      fontWeight: FontWeight.bold),
                                                 ),
                                               ),
-                                            ),
-                                            child: Text(
-                                              'В кафе',
-                                              style: GoogleFonts.roboto(
-                                                  color: button2Color ==
-                                                          Color(0xFFD6A875)
-                                                      ? Color(0xFFF7F0DA)
-                                                      : Color(0xFF0D2100),
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.bold),
                                             ),
                                           ),
                                         ),
@@ -420,116 +428,107 @@ class _MenuPageState extends State<MenuPage> {
                     ),
                   );
                 },
-                child: SizedBox(
-                  width: 460,
-                  height: 550,
-                  child: ListView.builder(
-                    itemCount: items.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        title: SizedBox(
-                          height: 340,
-                          child: Stack(
-                            children: [
-                              Center(
-                                child: Container(
-                                  margin: EdgeInsets.symmetric(
-                                      horizontal:
-                                          MediaQuery.of(context).size.width *
-                                              0.07),
-                                  width: MediaQuery.of(context).size.width,
-                                  height: 280,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(11),
-                                    color: Color(0xFFFFFBF0),
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(40, 40, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Column(
-                                          children: [
-                                            SizedBox(
-                                              width: 160,
-                                              child: Text(
-                                                items2[index].name,
-                                                style: GoogleFonts.roboto(
-                                                    color: Color(0xFF9DD153),
-                                                    fontSize: 18,
-                                                    fontWeight:
-                                                        FontWeight.w900),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 160,
-                                              child: Text(
-                                                items2[index].description,
-                                                style: GoogleFonts.roboto(
-                                                    color: Color(0xFF476533)
-                                                        .withOpacity(0.6),
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 5,
-                                            ),
-                                            SizedBox(
-                                              width: 150,
-                                              child: TextButton(
-                                                onPressed: () {
-                                                  cart.add(items[index]);
-                                                },
-                                                style: ButtonStyle(
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all(
-                                                    Color(0xFFE29845),
-                                                  ),
-                                                  shape:
-                                                      MaterialStateProperty.all(
-                                                    RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              41),
-                                                    ),
-                                                  ),
-                                                ),
-                                                child: Text(
-                                                  'В корзину',
-                                                  style: GoogleFonts.roboto(
-                                                      color: Color(0xFFFFFBF0),
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.w700),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          width: 180,
-                                          height: 180,
-                                          child: Image.asset(
-                                            items2[index].photo,
-                                          ),
-                                        )
-                                      ],
+                child: ListView.builder(
+                  physics: NeverScrollableScrollPhysics(), // Add this line
+                  shrinkWrap: true, // Add this property
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: SizedBox(
+                        height: 300,
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            return Stack(
+                              children: [
+                                Center(
+                                  child: Container(
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: constraints.maxWidth * 0.07),
+                                    width: constraints.maxWidth,
+                                    height: constraints.maxHeight * 0.8,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(11),
+                                      color: Color(0xFFFFFBF0),
                                     ),
                                   ),
-                                ],
-                              )
-                            ],
-                          ),
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(40, 40, 0, 0),
+                                      child: Row(
+                                        children: [
+                                          Column(
+                                            children: [
+                                              SizedBox(
+                                                width: constraints.maxWidth * 0.4,
+                                                child: Text(
+                                                  items2[index].name,
+                                                  style: GoogleFonts.roboto(
+                                                      color: Color(0xFF9DD153),
+                                                      fontSize: 18,
+                                                      fontWeight: FontWeight.w900),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: constraints.maxWidth * 0.4,
+                                                child: Text(
+                                                  items2[index].description,
+                                                  style: GoogleFonts.roboto(
+                                                      color: Color(0xFF476533).withOpacity(0.6),
+                                                      fontSize: 14,
+                                                      fontWeight: FontWeight.w500),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 5,
+                                              ),
+                                              SizedBox(
+                                                width: constraints.maxWidth * 0.4,
+                                                child: TextButton(
+                                                  onPressed: () {
+                                                    cart.add(items[index]);
+                                                  },
+                                                  style: ButtonStyle(
+                                                    backgroundColor: MaterialStateProperty.all(
+                                                      Color(0xFFE29845),
+                                                    ),
+                                                    shape: MaterialStateProperty.all(
+                                                      RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(41),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  child: Text(
+                                                    'В корзину',
+                                                    style: GoogleFonts.roboto(
+                                                        color: Color(0xFFFFFBF0),
+                                                        fontSize: 20,
+                                                        fontWeight: FontWeight.w700),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            width: constraints.maxWidth * 0.4,
+                                            height: constraints.maxHeight * 0.4,
+                                            child: Image.asset(
+                                              items2[index].photo,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
