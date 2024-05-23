@@ -21,7 +21,6 @@ class _EnterPageState extends State<EnterPage> {
   bool _isButtonEnabled = false;
   bool _buttonPressed = false; // Флаг для отслеживания нажатия на кнопку
 
-
   void _checkInput() {
     setState(() {
       if (_emailController.text == 'clikov_ed@mail.ru' &&
@@ -91,35 +90,35 @@ class _EnterPageState extends State<EnterPage> {
               ),
               SizedBox(height: 7),
               TextField(
-                // controller: _emailController,
+                controller: _emailController,
                 onChanged: (_) => _checkInput(),
                 decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Color(0xFFF9F3E0),
-                      hintText: 'Введите текст',
-                      hintStyle: TextStyle(color: Color(0xFFF9F3E0)),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(41),
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(41),
-                        ),
-                        borderSide: BorderSide(
-                          color: Colors.green.withOpacity(0),
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(41),
-                        ),
-                        borderSide: BorderSide(
-                          color: Colors.green.withOpacity(0),
-                        ),
-                      ),
+                  filled: true,
+                  fillColor: Color(0xFFF9F3E0),
+                  hintText: 'Введите текст',
+                  hintStyle: TextStyle(color: Color(0xFFF9F3E0)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(41),
                     ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(41),
+                    ),
+                    borderSide: BorderSide(
+                      color: Colors.green.withOpacity(0),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(41),
+                    ),
+                    borderSide: BorderSide(
+                      color: Colors.green.withOpacity(0),
+                    ),
+                  ),
+                ),
                 style: TextStyle(color: Color(0xFF476533)),
               ),
               // TextField(
@@ -170,47 +169,47 @@ class _EnterPageState extends State<EnterPage> {
               ),
               SizedBox(height: 7),
               TextField(
-                // controller: _passwordController,
+                controller: _passwordController,
                 onChanged: (_) => _checkInput(),
                 obscureText: _isObscured,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Color(0xFFF9F3E0),
-                    hintText: 'Введите текст',
-                    hintStyle: TextStyle(color: Color(0xFFF9F3E0)),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(41),
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(41),
-                      ),
-                      borderSide: BorderSide(
-                        color: Colors.green.withOpacity(0),
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(41),
-                      ),
-                      borderSide: BorderSide(
-                        color: Colors.green.withOpacity(0),
-                      ),
-                    ),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _isObscured ? Icons.visibility : Icons.visibility_off,
-                        color: Color(0xFF0D2100),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _isObscured = !_isObscured;
-                        });
-                      },
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Color(0xFFF9F3E0),
+                  hintText: 'Введите текст',
+                  hintStyle: TextStyle(color: Color(0xFFF9F3E0)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(41),
                     ),
                   ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(41),
+                    ),
+                    borderSide: BorderSide(
+                      color: Colors.green.withOpacity(0),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(41),
+                    ),
+                    borderSide: BorderSide(
+                      color: Colors.green.withOpacity(0),
+                    ),
+                  ),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _isObscured ? Icons.visibility : Icons.visibility_off,
+                      color: Color(0xFF0D2100),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _isObscured = !_isObscured;
+                      });
+                    },
+                  ),
+                ),
               ),
               // TextField(
               //   controller: _passwordController,
@@ -257,20 +256,20 @@ class _EnterPageState extends State<EnterPage> {
               SizedBox(height: 50),
               ElevatedButton(
                 onPressed: () {
-                  // setState(() {
-                  //   _buttonPressed = true; // Устанавливаем флаг нажатия на кнопку
-                  //   if (_isButtonEnabled) {
-                  //     Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(builder: (context) => MenuPage()),
-                  //     );
-                  //   }
-                  // });
-
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MenuPage()),
-                  );
+                  setState(() {
+                    _buttonPressed =
+                        true;
+                    if (_isButtonEnabled) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MenuPage()),
+                      );
+                    }
+                  });
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => MenuPage()),
+                  // );
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(

@@ -81,7 +81,9 @@ class _RegistPageState extends State<RegistPage> {
                     ),
                   ),
                 ),
-                style: TextStyle(color: Color(0xFF476533)),
+                style: TextStyle(
+                  color: Color(0xFF476533),
+                ),
               ),
               SizedBox(height: 20),
               Row(

@@ -466,7 +466,7 @@ class _MenuPageState extends State<MenuPage> {
                                                   items2[index].name,
                                                   style: GoogleFonts.roboto(
                                                       color: Color(0xFF9DD153),
-                                                      fontSize: 18,
+                                                      fontSize: 17,
                                                       fontWeight: FontWeight.w900),
                                                 ),
                                               ),
@@ -476,7 +476,7 @@ class _MenuPageState extends State<MenuPage> {
                                                   items2[index].description,
                                                   style: GoogleFonts.roboto(
                                                       color: Color(0xFF476533).withOpacity(0.6),
-                                                      fontSize: 14,
+                                                      fontSize: 13,
                                                       fontWeight: FontWeight.w500),
                                                 ),
                                               ),
@@ -511,8 +511,8 @@ class _MenuPageState extends State<MenuPage> {
                                             ],
                                           ),
                                           SizedBox(
-                                            width: constraints.maxWidth * 0.4,
-                                            height: constraints.maxHeight * 0.4,
+                                            width: constraints.maxWidth * 0.43,
+                                            height: constraints.maxHeight * 0.43,
                                             child: Image.asset(
                                               items2[index].photo,
                                             ),
