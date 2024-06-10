@@ -20,10 +20,16 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   String _selectedCity = 'Выберите город';
 
-  Image _image1 = Image.asset("assets/icons/limeMenu.png");
-  Image _image2 = Image.asset("assets/icons/memesIcons.png");
-  Image _image3 = Image.asset("assets/icons/locationIcons.png");
-  Image _image4 = Image.asset("assets/icons/shoppingIcons.png");
+  final ScrollController _scrollController = ScrollController();
+  final GlobalKey _section1Key = GlobalKey();
+  final GlobalKey _section2Key = GlobalKey();
+
+  void _scrollToSection(GlobalKey key) {
+    final context = key.currentContext;
+    if (context != null) {
+      Scrollable.ensureVisible(context, duration: Duration(seconds: 1));
+    }
+  }
 
   Color button1Color = Color(0xFFF7F0DA);
   Color button2Color = Color(0xFFF7F0DA);
@@ -38,8 +44,6 @@ class _MenuPageState extends State<MenuPage> {
   bool isButton2Pressed = false;
   bool isButton3Pressed = false;
   bool isButton4Pressed = false;
-  bool isButton5Pressed = false;
-  bool isButton6Pressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -249,7 +253,6 @@ class _MenuPageState extends State<MenuPage> {
               SizedBox(height: 30),
               Container(
                 height: 40.0,
-                // Высота контейнера, можете настроить под свои требования
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -267,22 +270,50 @@ class _MenuPageState extends State<MenuPage> {
                       child: TextButton(
                         onPressed: () {
                           setState(() {
-                            isButton3Pressed = !isButton3Pressed;
-                            isButton4Pressed = false;
-                            buttonText1TextColor = isButton3Pressed
-                                ? Color(0xFFF7F0DA)
-                                : Color(0xFF5C913B);
+                            isButton1Pressed = !isButton1Pressed;
                           });
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                            isButton3Pressed ? Color(0xFF5C913B) : null,
+                            isButton1Pressed ? Color(0xFF5C913B) : null,
                           ),
                           side: MaterialStateProperty.all(
                             BorderSide(
-                              color: isButton3Pressed
-                                  ? Colors.transparent
-                                  : Color(0xFF5C913B),
+                              color: isButton1Pressed ? Colors.transparent : Color(0xFF5C913B),
+                              width: 2.0,
+                            ),
+                          ),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(41),
+                            ),
+                          ),
+                        ),
+                        child: Text(
+                          'Закуски',
+                          style: GoogleFonts.roboto(
+                            color: isButton1Pressed ? Colors.white : Color(0xFF5C913B),
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 15),
+                    SizedBox(
+                      width: 100,
+                      child: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            isButton2Pressed = !isButton2Pressed;
+                          });
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            isButton2Pressed ? Color(0xFF5C913B) : null,
+                          ),
+                          side: MaterialStateProperty.all(
+                            BorderSide(
+                              color: isButton2Pressed ? Colors.transparent : Color(0xFF5C913B),
                               width: 2.0,
                             ),
                           ),
@@ -295,7 +326,9 @@ class _MenuPageState extends State<MenuPage> {
                         child: Text(
                           'Завтраки',
                           style: GoogleFonts.roboto(
-                              color: buttonText1TextColor, fontSize: 16),
+                            color: isButton2Pressed ? Colors.white : Color(0xFF5C913B),
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                     ),
@@ -305,11 +338,41 @@ class _MenuPageState extends State<MenuPage> {
                       child: TextButton(
                         onPressed: () {
                           setState(() {
-                            isButton3Pressed = false;
+                            isButton3Pressed = !isButton3Pressed;
+                          });
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            isButton3Pressed ? Color(0xFF5C913B) : null,
+                          ),
+                          side: MaterialStateProperty.all(
+                            BorderSide(
+                              color: isButton3Pressed ? Colors.transparent : Color(0xFF5C913B),
+                              width: 2.0,
+                            ),
+                          ),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(41),
+                            ),
+                          ),
+                        ),
+                        child: Text(
+                          'Салаты',
+                          style: GoogleFonts.roboto(
+                            color: isButton3Pressed ? Colors.white : Color(0xFF5C913B),
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 15),
+                    SizedBox(
+                      width: 100,
+                      child: TextButton(
+                        onPressed: () {
+                          setState(() {
                             isButton4Pressed = !isButton4Pressed;
-                            buttonText2TextColor = isButton4Pressed
-                                ? Color(0xFFF7F0DA)
-                                : Color(0xFF5C913B);
                           });
                         },
                         style: ButtonStyle(
@@ -318,101 +381,22 @@ class _MenuPageState extends State<MenuPage> {
                           ),
                           side: MaterialStateProperty.all(
                             BorderSide(
-                              color: isButton4Pressed
-                                  ? Colors.transparent
-                                  : Color(0xFF5C913B),
+                              color: isButton4Pressed ? Colors.transparent : Color(0xFF5C913B),
                               width: 2.0,
                             ),
                           ),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  41), // Установите радиус закругления
+                              borderRadius: BorderRadius.circular(41),
                             ),
                           ),
                         ),
                         child: Text(
-                          'Закуски',
+                          'Сытное',
                           style: GoogleFonts.roboto(
-                              color: buttonText2TextColor, fontSize: 16),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 15),
-                    SizedBox(
-                      width: 100,
-                      child: TextButton(
-                        onPressed: () {
-                          setState(() {
-                            isButton5Pressed = false;
-                            isButton6Pressed = !isButton6Pressed;
-                            buttonText4TextColor = isButton5Pressed
-                                ? Color(0xFFF7F0DA)
-                                : Color(0xFF5C913B);
-                          });
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            isButton6Pressed ? Color(0xFF5C913B) : null,
+                            color: isButton4Pressed ? Colors.white : Color(0xFF5C913B),
+                            fontSize: 16,
                           ),
-                          side: MaterialStateProperty.all(
-                            BorderSide(
-                              color: isButton6Pressed
-                                  ? Colors.transparent
-                                  : Color(0xFF5C913B),
-                              width: 2.0,
-                            ),
-                          ),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  41), // Установите радиус закругления
-                            ),
-                          ),
-                        ),
-                        child: Text(
-                          'Закуски',
-                          style: GoogleFonts.roboto(
-                              color: buttonText2TextColor, fontSize: 16),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 15),
-                    SizedBox(
-                      width: 100,
-                      child: TextButton(
-                        onPressed: () {
-                          setState(() {
-                            isButton3Pressed = false;
-                            isButton4Pressed = !isButton4Pressed;
-                            buttonText2TextColor = isButton4Pressed
-                                ? Color(0xFFF7F0DA)
-                                : Color(0xFF5C913B);
-                          });
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            isButton4Pressed ? Color(0xFF5C913B) : null,
-                          ),
-                          side: MaterialStateProperty.all(
-                            BorderSide(
-                              color: isButton4Pressed
-                                  ? Colors.transparent
-                                  : Color(0xFF5C913B),
-                              width: 2.0,
-                            ),
-                          ),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  41), // Установите радиус закругления
-                            ),
-                          ),
-                        ),
-                        child: Text(
-                          'Закуски',
-                          style: GoogleFonts.roboto(
-                              color: buttonText2TextColor, fontSize: 16),
                         ),
                       ),
                     ),
@@ -429,8 +413,8 @@ class _MenuPageState extends State<MenuPage> {
                   );
                 },
                 child: ListView.builder(
-                  physics: NeverScrollableScrollPhysics(), // Add this line
-                  shrinkWrap: true, // Add this property
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
                   itemCount: items.length,
                   itemBuilder: (context, index) {
                     return ListTile(
@@ -480,9 +464,7 @@ class _MenuPageState extends State<MenuPage> {
                                                       fontWeight: FontWeight.w500),
                                                 ),
                                               ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
+                                              Spacer(),
                                               SizedBox(
                                                 width: constraints.maxWidth * 0.4,
                                                 child: TextButton(
@@ -506,6 +488,11 @@ class _MenuPageState extends State<MenuPage> {
                                                         fontSize: 20,
                                                         fontWeight: FontWeight.w700),
                                                   ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                child: Padding(
+                                                  padding: EdgeInsets.fromLTRB(0, 0, 0, 45),
                                                 ),
                                               ),
                                             ],

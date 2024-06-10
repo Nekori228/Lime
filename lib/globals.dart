@@ -34,3 +34,15 @@ class Item {
 
   Item({required this.name, required this.description, required this.photo});
 }
+
+class User {
+  final String avatarUrl;
+  final String name;
+  final String email;
+
+  User({
+    required this.avatarUrl,
+    required this.name,
+    required this.email,
+  });
+}

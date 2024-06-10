@@ -13,7 +13,7 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  int _count = 0;
+  int _count = 1;
 
   void _incrementCount() {
     setState(() {

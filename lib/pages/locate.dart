@@ -72,7 +72,7 @@ class LocatePage extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         _launchCaller(
-                            '+79224265608'); // Замените номером телефона на свой
+                            '+79224606589'); // Замените номером телефона на свой
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
