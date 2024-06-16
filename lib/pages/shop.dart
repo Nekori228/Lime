@@ -13,17 +13,25 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  int _count = 1;
+  late List<int> _counts;
 
-  void _incrementCount() {
+  @override
+  void initState() {
+    super.initState();
+    _counts = List<int>.filled(widget.cart.items.length, 1);
+  }
+
+  void _incrementCount(int index) {
     setState(() {
-      _count++;
+      _counts[index]++;
     });
   }
 
-  void _decrementCount() {
+  void _decrementCount(int index) {
     setState(() {
-      _count--;
+      if (_counts[index] > 1) {
+        _counts[index]--;
+      }
     });
   }
 
@@ -118,19 +126,19 @@ class _CartPageState extends State<CartPage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         GestureDetector(
-                                          onTap: _decrementCount,
+                                          onTap: () => _decrementCount(index),
                                           child: Icon(
                                             Icons.remove,
                                             color: Colors.orange,
                                           ),
                                         ),
                                         Text(
-                                          '$_count',
+                                          '${_counts[index]}',
                                           style: TextStyle(
                                               color: Colors.orange),
                                         ),
                                         GestureDetector(
-                                          onTap: _incrementCount,
+                                          onTap: () => _incrementCount(index),
                                           child: Icon(
                                             Icons.add,
                                             color: Colors.orange,
