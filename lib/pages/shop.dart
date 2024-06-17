@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lime/globals.dart';
+import 'package:lime/pages/sendMail.dart';
 
 import 'menyEnter.dart';
 
@@ -182,6 +183,37 @@ class _CartPageState extends State<CartPage> {
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF5C913B),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child:  SizedBox(
+                  width: 350,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => SendMail(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      backgroundColor: Color(0xFFE08C2F),
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                      textStyle: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    child: Text(
+                      'Оформить заказ',
+                      style: TextStyle(
+                          color: Color(0xFFFFFFFF),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
               ),
