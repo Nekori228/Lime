@@ -14,16 +14,32 @@ class CartPage extends StatefulWidget {
 
 class _CartPageState extends State<CartPage> {
   late List<int> _counts;
+  late double _totalPrice;
 
-  @override
   void initState() {
     super.initState();
     _counts = List<int>.filled(widget.cart.items.length, 1);
+    _totalPrice = _calculateTotalPrice();
+  }
+
+  double _calculateTotalPrice() {
+    double total = 0.0;
+    for (int i = 0; i < widget.cart.items.length; i++) {
+      total += items2[i].price * _counts[i];  // Предполагая, что в items2 есть поле price
+    }
+    return total;
+  }
+
+  void _updateTotalPrice() {
+    setState(() {
+      _totalPrice = _calculateTotalPrice();
+    });
   }
 
   void _incrementCount(int index) {
     setState(() {
       _counts[index]++;
+      _updateTotalPrice();
     });
   }
 
@@ -31,6 +47,7 @@ class _CartPageState extends State<CartPage> {
     setState(() {
       if (_counts[index] > 1) {
         _counts[index]--;
+        _updateTotalPrice();
       }
     });
   }
@@ -105,7 +122,7 @@ class _CartPageState extends State<CartPage> {
                               child: Row(
                                 children: [
                                   Text(
-                                    '399Р',
+                                    '${items2[index].price}Р',
                                     style: TextStyle(
                                       color: Color(0xFF9DD153),
                                     ),
@@ -156,6 +173,17 @@ class _CartPageState extends State<CartPage> {
                     ),
                   );
                 },
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  'Общая стоимость: $_totalPriceР',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF5C913B),
+                  ),
+                ),
               ),
             ],
           ),
